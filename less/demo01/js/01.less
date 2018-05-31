@@ -1,0 +1,84 @@
+/*多行注释 */
+//多行注释
+
+
+//less变量 创建5个变量
+//京东红 细边框 半透明 基础文字
+//默认边框实心
+@jdRed:yellow;
+@thinBorder:2px;
+@halfOpacity:0.6;
+@baseFont:"SimHei";
+@normalBorderStyle:solid;
+
+//选择器 .box
+//字体基础文字
+//背景默认半透明
+//边框 细 实心 京东红
+.box{
+  font:@baseFont;
+  background: rgba(0,0,0,@halfOpacity);
+  border:@thinBorder @normalBorderStyle @jdRed;
+}
+//运算
+//创建二个变量
+//保存屏幕宽度 970
+//保存12等分
+@md-width:970px;
+@col-count:12;
+//定义二个选择器
+.col-md-1{width:@md-width/@col-count}
+.col-md-2{width:@md-width/@col-count*2}
+
+//混入:
+.box2{
+  background: red;
+  color:#fff;
+}
+.box3{
+  .box2;
+}
+
+//多级列表
+.box{
+   background: #fff;
+   .affix{
+     list-style: none;
+     > li{
+       display: inline-block;
+       >a{
+         text-decoration: none;
+         &:hover{
+           color:red;
+         }
+       }
+     }
+   }
+}
+//函数:
+.col-md-6{
+  width:floor(@md-width/@col-count*6);
+}
+.box5{
+  color:@jdRed;
+  background: lighten(@jdRed,30%);
+  border:1px solid  darken(@jdRed,40%);
+}
+//nodejs  6.00 8.00  node -v
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
